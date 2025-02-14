@@ -32,12 +32,12 @@ export const MultipleDragList = ({
   onAdd,
   onEdit,
 }: MultipleDragListProps) => {
-  const { control } = useFormContext<ResumeContentData>()
+  const { control } = useFormContext<ResumeData>();
 
   const { fields, move } = useFieldArray({
     control,
     name: `content.${data.formKey}`,
-  })
+  });
 
   const handleDrag = () => {
     console.log('drag')
@@ -55,25 +55,22 @@ export const MultipleDragList = ({
                 <div
                   {...provided.droppableProps}
                   ref={provided.innerRef}
-                  className="bg-red-500"
-                >
+                  className="bg-red-500">
+                    
                   {fields.map((field, index) => (
                     <Draggable
                       key={`dragaable-item-${data.formKey}-${index}`}
                       draggableId={`dragaable-item-${data.formKey}-${index}`}
-                      index={index}
-                    >
+                      index={index}>
                       {provided => (
                         <div
                           key={field.id}
                           ref={provided.innerRef}
                           {...provided.draggableProps}
-                          className="h-16 bg-blue-400"
-                        >
+                          className="h-16 bg-blue-400">
                           <div
                             {...provided.dragHandleProps}
-                            className="w-6 h-full bg-green-400"
-                            >
+                            className="w-6 h-full bg-green-400">
                                 <div>
                                     <p className='flex-1'>
                                         content
