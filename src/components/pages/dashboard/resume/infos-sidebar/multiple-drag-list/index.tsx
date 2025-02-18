@@ -73,7 +73,9 @@ export const MultipleDragList = ({
                 >
                   {fields.map((field, index) => {
                     const titleKey = data.titleKey as keyof typeof field;
-                    const descriptionKey = data.descriptionKey as keyof typeof field;
+                    const descriptionKey =
+                      data.descriptionKey as keyof typeof field;
+
                     const isLastItem = index === fields.length - 1;
 
                     return (

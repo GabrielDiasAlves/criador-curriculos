@@ -4,6 +4,7 @@ import '../styles/globals.css'
 
 import { cn } from '@/lib/utils'
 import { ThemeProvider } from '@/components/shared/theme-provider'
+import { Toaster } from 'sonner'
 
 const fontSans = Nunito_Sans({ subsets: ['latin'], variable: '--font-sans', display: 'swap', adjustFontFallback: false })
 const fontTitle = Nunito({ subsets: ['latin'], variable: '--font-title' })
@@ -36,6 +37,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

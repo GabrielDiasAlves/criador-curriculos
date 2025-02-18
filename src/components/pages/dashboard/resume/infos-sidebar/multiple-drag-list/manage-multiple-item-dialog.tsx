@@ -1,3 +1,4 @@
+
 import { BaseDialogProps, Dialog } from "@/components/ui/dialog";
 import { MultipleDragItemData, ResumeArrayKeys } from ".";
 import { FormProvider, useForm, useFormContext } from "react-hook-form";
@@ -5,12 +6,12 @@ import { Fragment, useEffect, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { InputField } from "@/components/ui/input/field";
-// import { EditorField } from "@/components/ui/editor/field";
-// import { IconField } from "@/components/ui/icon-input/field";
-// import { SliderField } from "@/components/ui/slider/field";
-// import { Badge } from "@/components/ui/badge";
-// import { v4 as uuid } from "uuid";
-// import { toast } from "sonner";
+import { EditorField } from "@/components/ui/editor/field";
+import { IconField } from "@/components/ui/icon-input/field";
+import { SliderField } from "@/components/ui/slider/field";
+import { Badge } from "@/components/ui/badge";
+import { v4 as uuid } from "uuid";
+import { toast } from "sonner";
 
 type ManageMultipleItemDialogProps = BaseDialogProps & {
   data: MultipleDragItemData;
@@ -269,9 +270,9 @@ export const ManageMultipleItemDialog = ({
       return (
         <Fragment key={index}>
           {fieldType === "text" && <InputField {...inputProps} />}
-          {/* {fieldType === "editor" && <EditorField {...inputProps} />}
+          {fieldType === "editor" && <EditorField {...inputProps} />}
           {fieldType === "icon" && <IconField {...inputProps} />}
-          {fieldType === "slider" && <SliderField {...inputProps} />} */}
+          {fieldType === "slider" && <SliderField {...inputProps} />}
           {fieldType === "keywords" && (
             <InputField
               {...inputProps}
@@ -280,7 +281,7 @@ export const ManageMultipleItemDialog = ({
                   {value?.split(",").map((keyword, index) => {
                     if (!keyword.trim()) return null;
 
-                    // return <Badge key={`keyword-${index}`}>{keyword}</Badge>;
+                    return <Badge key={`keyword-${index}`}>{keyword}</Badge>;
                   })}
                 </div>
               )}
@@ -303,7 +304,7 @@ export const ManageMultipleItemDialog = ({
 
     setValue(`content.${formKey}`, updatedItems);
     setOpen(false);
-    // toast.success("Item removido com sucesso!");
+    toast.success("Item removido com sucesso!");
   }
 
   const onSubmit = (formData: any) => {
@@ -323,7 +324,7 @@ export const ManageMultipleItemDialog = ({
 
       setValue(`content.${formKey}`, updatedItems);
       setOpen(false);
-      // toast.success("Item atualizado com sucesso!");
+      toast.success("Item atualizado com sucesso!");
 
       return;
     }
@@ -332,11 +333,11 @@ export const ManageMultipleItemDialog = ({
       ...currentFieldValue,
       {
         ...formData,
-        // id: uuid(),
+        id: uuid(),
       },
     ]);
     setOpen(false);
-    // toast.success("Item adicionado com sucesso!");
+    toast.success("Item adicionado com sucesso!");
   };
 
   return (
@@ -360,7 +361,7 @@ export const ManageMultipleItemDialog = ({
               </Button>
             )}
             <Button type="submit" className="w-max">
-              {isEditing ? "Salvar" : "Adicionar"}
+              {isEditing ? "Salvar" : "Adicionar"} 
             </Button>
           </div>
         </form>

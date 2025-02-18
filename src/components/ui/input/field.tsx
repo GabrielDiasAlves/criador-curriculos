@@ -30,11 +30,8 @@ export const InputField = ({
         required: required && 'Campo obrigatório',
       }}
       render={({ field, fieldState }) => (
-        <FieldWrapper label={label} className={containerClassName}>
+        <FieldWrapper label={label} className={containerClassName} error={fieldState?.error}>
           <Input {...props} {...field} />
-          {fieldState.error && (
-            <p className="text-sm text-red-500">{fieldState.error.message}</p>
-          )}
           {extraContent && extraContent(field.value)}
         </FieldWrapper>
       )}
