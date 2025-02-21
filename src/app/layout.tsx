@@ -1,13 +1,15 @@
-import type { Metadata } from 'next'
-import { Nunito, Nunito_Sans } from 'next/font/google'
-import '../styles/globals.css'
+import type { Metadata } from "next";
+import { Nunito, Nunito_Sans } from "next/font/google";
+import "../styles/globals.css";
 
-import { cn } from '@/lib/utils'
-import { ThemeProvider } from '@/components/shared/theme-provider'
-import { Toaster } from 'sonner'
+import { setDefaultOptions } from "date-fns";
+import { ptBR } from "date-fns/locale";
+
+import { cn } from "@/lib/utils";
+import { ClientProviders } from "@/components/shared/client-providers";
 
 const fontSans = Nunito_Sans({ subsets: ['latin'], variable: '--font-sans', display: 'swap', adjustFontFallback: false })
-const fontTitle = Nunito({ subsets: ['latin'], variable: '--font-title' })
+const fontTitle = Nunito({ subsets: ["latin"], variable: "--font-title" });
 
 export const metadata: Metadata = {
   title: "ResumeCraft",
@@ -16,30 +18,26 @@ export const metadata: Metadata = {
   }
 };
 
+setDefaultOptions({ locale: ptBR });
+
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br">
+    <html lang="pt-BR">
       <body
         className={cn(
-          'min-h-screen bg-background font-sans antialiased',
+          "min-h-screen bg-background font-sans antialiased",
           fontTitle.variable,
-          fontSans.variable,
+          fontSans.variable
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ClientProviders>
           {children}
-          <Toaster />
-        </ThemeProvider>
+        </ClientProviders>
       </body>
     </html>
-  )
+  );
 }

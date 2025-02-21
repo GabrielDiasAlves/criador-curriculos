@@ -1,4 +1,4 @@
- import { useDebounce } from "@/hooks/use-debounce";
+import { useDebounce } from "@/hooks/use-debounce";
 import { Input } from "../input"
 
 type IconInputProps = {
@@ -8,7 +8,7 @@ type IconInputProps = {
 }
 
 export const IconInput = ({ value, onChange, placeholder }: IconInputProps) => {
-   const debouncedValue = useDebounce(value);
+  const debouncedValue = useDebounce(value);
 
   return (
     <div className="flex items-center gap-2">

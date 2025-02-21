@@ -1,4 +1,3 @@
-
 import { BaseDialogProps, Dialog } from "@/components/ui/dialog";
 import { MultipleDragItemData, ResumeArrayKeys } from ".";
 import { FormProvider, useForm, useFormContext } from "react-hook-form";
@@ -361,7 +360,7 @@ export const ManageMultipleItemDialog = ({
               </Button>
             )}
             <Button type="submit" className="w-max">
-              {isEditing ? "Salvar" : "Adicionar"} 
+              {isEditing ? "Salvar" : "Adicionar"}
             </Button>
           </div>
         </form>

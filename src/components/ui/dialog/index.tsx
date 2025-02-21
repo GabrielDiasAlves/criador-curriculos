@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactNode } from "react";
 import {
   Dialog as DialogRoot,
   DialogContent,
@@ -6,19 +6,19 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from './primitive'
+} from "./primitive";
 
 export type BaseDialogProps = {
-  children?: ReactNode
-  open?: boolean
-  setOpen?: (open: boolean) => void
+  children?: ReactNode;
+  open?: boolean;
+  setOpen?: (open: boolean) => void;
 }
 
 type DialogProps = BaseDialogProps & {
-  title: string
-  description?: string
-  content: ReactNode
-}
+  title: string;
+  description?: string;
+  content: ReactNode;
+};
 
 export const Dialog = ({
   children,
@@ -41,5 +41,5 @@ export const Dialog = ({
         {content}
       </DialogContent>
     </DialogRoot>
-  )
-}
+  );
+};
