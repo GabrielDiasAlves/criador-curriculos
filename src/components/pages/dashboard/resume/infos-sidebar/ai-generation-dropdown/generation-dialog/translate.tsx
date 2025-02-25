@@ -48,7 +48,7 @@ export const GenerateTranslation = ({ onClose }: GenerateTranslationProps) => {
 
       onClose();
     }
-  });
+  }); 
 
   const onSubmit = async (formData: FormData) => {
     const content = getValues("content");

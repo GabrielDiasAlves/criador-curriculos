@@ -7,7 +7,7 @@ import { DuplicateResumeDialog } from "./duplicate-resume-dialog";
 import { useResumeDownload } from "@/hooks/use-resume-download";
 
 type NavigationHeaderProps = {
-  title: string;
+  title: string; 
 };
 
 export const NavigationHeader = ({ title }: NavigationHeaderProps) => {

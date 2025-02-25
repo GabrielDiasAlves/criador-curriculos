@@ -116,5 +116,5 @@ export const ResumePage = ({ title, initialData, user }: ResumePageProps) => {
         </ResizablePanelGroup>
       </main>
     </FormProvider>
-  );
+  ); 
 };
