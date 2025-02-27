@@ -15,7 +15,7 @@ export const POST = async (request: Request) => {
 
     let event;
 
-    const rawBody = await request.text();
+    const rawBody = await request.text(); 
 
     try {
       event = stripe.webhooks.constructEvent(rawBody, sig, endpointSecret);
